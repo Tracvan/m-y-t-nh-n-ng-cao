@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 30%;
+            border: 3px solid #ddd; /* Màu đường viền của bảng */
+        }
+
+        th, td {
+
+            border: 1px solid #ddd; /* Màu đường viền của các ô */
+            padding: 5px; /* Khoảng cách giữa nội dung và đường viền */
+            text-align:center; /* Căn lề nội dung về bên trái */
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <th colspan="4">
+           <input id="push" > </th>
+    </tr>
+    <tr>
+        <td><button onclick="calculate(this.value) "type="button" value="(" id ="open">(</button> </td>
+        <td><button onclick="calculate(this.value)" type="button" value=")" id="close">)</button> </td>
+        <td><button onclick="calculate(this.value)" type="button" value="%" id="percent">%</button> </td>
+        <td><button onclick="again()" type="reset"  id ="again">AC</button> </td>
+    </tr>
+    <tr>
+        <td><button onclick="calculate(this.value)" type="button" value="7" id="num7">7</button> </td>
+        <td><button onclick="calculate(this.value)" type="button" value="8" id="num8">8</button> </td>
+        <td><button onclick="calculate(this.value)" type="button" value="9" id="num9">9</button> </td>
+        <td><button onclick="calculate(this.value)" type="button" value="/"  id="provide">&#247</button></td>
+    </tr>
+    <tr>
+        <td><button onclick="calculate(this.value)" type="button" value="4" id="num4">4</button> </td>
+        <td><button onclick="calculate(this.value)" type="button" value="5" id="num5">5</button> </td>
+        <td><button onclick="calculate(this.value)" type="button" value="6" id="num6">6</button> </td>
+        <td><button onclick="calculate(this.value)" type="button" value="*" id="times">&#215</button></td>
+    </tr>
+    <tr>
+        <td><button onclick="calculate(this.value)" type="button" value="1" id="num1">1</button> </td>
+        <td><button onclick="calculate(this.value)" type="button" value="2" id="num2">2</button> </td>
+        <td><button onclick="calculate(this.value)" type="button" value="3" id="num3">3</button> </td>
+        <td><button onclick="calculate(this.value)" type="reset" value="-" id="subtract">&#8722</button></td>
+    </tr>
+    <tr>
+        <td> <button onclick="calculate(this.value)" type="button" value="0" id="num0">0</button> </td>
+        <td> <button onclick="calculate(this.value)" type="button" value="." id="dot">.</button> </td>
+        <td> <button onclick="result()" type="button"  id="equal" value="=="
+                     style="background-color: #3807c0">=</button> </td>
+        <td> <button onclick="calculate(this.value)" type="button" value="+" id="plus">&#43</button></td>
+    </tr>
+</table>
+</body>
+</html>
+<script>
+    function calculate(value) {
+        let a = document.getElementById("push").value
+    document.getElementById("push").value = a + value
+    }
+    function again(){
+        let display = document.getElementById("push")
+        display.value = ''
+
+    }
+    function result(){
+        let results;
+        let final = document.getElementById("push")
+        results = eval(final.value)
+        document.getElementById("push").value = results
+    }
+
+</script>
